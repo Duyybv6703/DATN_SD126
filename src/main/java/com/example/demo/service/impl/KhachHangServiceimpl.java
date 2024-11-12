@@ -19,20 +19,17 @@ public class KhachHangServiceimpl implements KhachHangService {
     @Autowired
     private KhachHangRepository khachHangRepository;
 
-    @Override
-    public List<KhachHang> getAll() {
-        return khachHangRepository.findAll();
-    }
 
     @Override
-    public Page<KhachHang> getData(int page) {
+    public Page<KhachHang> getData(Integer page) {
         Pageable pageable = PageRequest.of(page, 3);
         return khachHangRepository.findAll(pageable);
     }
 
+
     @Override
-    public KhachHang getOne(UUID id) {
-        return khachHangRepository.findById(id).orElse(null);
+    public KhachHang getOne(String id) {
+        return khachHangRepository.findById(UUID.fromString(id)).orElse(null);
     }
 
     @Override
@@ -42,8 +39,19 @@ public class KhachHangServiceimpl implements KhachHangService {
 
     }
 
+
     @Override
-    public void delete(UUID id) {
-        khachHangRepository.deleteById(id);
+    public void delete(String id) {
+        khachHangRepository.deleteById(UUID.fromString(id));
     }
+
+    @Override
+    public void update(String id, KhachHang khachHang) {
+
+        khachHang.setId(UUID.fromString(id));
+        khachHangRepository.save(khachHang);
+
+    }
+
+
 }

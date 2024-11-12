@@ -12,18 +12,18 @@
 </head>
 <body>
 
-<form>
+<form action="/khach-hang/add" method="post">
     <br> <br>
-    Id: <input type="text" name="id" value="${detail.id}">
-    <%--    <br> <br>--%>
     Mã: <input type="text" name="ma" value="${detail.ma}">
-    <br> <br>
     Họ Tên: <input type="text" name="hoten" value="${detail.ho_ten}">
-    <%--    <br> <br>--%>
-    SĐT: <input type="text" name="sdt" value="${detail.sdt}">
+
     <br> <br>
+
+    SĐT: <input type="text" name="sdt" value="${detail.sdt}">
     Email: <input type="email" name="email" value="${detail.email}">
-    <%--    <br> <br>--%>
+
+    <br> <br>
+
     Gioi Tính:
     <select name="gioitinh">
 
@@ -33,33 +33,29 @@
         <%--            <option value="${kh.id}" ${detail.id == kh.id ? "selected" : ""}>${kh.quocGia}</option>--%>
         <%--        </c:forEach>--%>
     </select>
+
     <br> <br>
-    Ngày Sinh: <input type="date" name="ngaysinh" value="${detail.ngay_sinh}">
-    <%--    <br> <br>--%>
-    Tài Khoản: <input type="text" name="taikhoan" value="${detail.tai_khoan}">
-    <br> <br>
-    Mật Khẩu: <input type="text" name="matkhau" value="${detail.mat_khau}">
-    <%--    <br> <br>--%>
-    Ngày Tạo: <input type="date" name="ngaytao" value="${detail.ngay_tao}">
-    <br> <br>
-    Ngày Cập Nhật: <input type="date" name="ngaycapnhat" value="${detail.ngay_cap_nhat}">
-    <%--    <br> <br>--%>
+
     Tình Trạng:
-
-    <select name="tinh_trang">
-
-        <option value="Hoạt động" ${detail.tinh_trang == "Hoạt động" ? "selected" : ""} >Hoạt động</option>
-        <option value="Không hoạt động" ${detail.tinh_trang == "Không hoạt động" ? "selected" : ""} >Không hoạt động
-        </option>
-        <%--        <c:forEach items="${khachhang}" var="kh">--%>
-        <%--            <option value="${kh.id}" ${detail.id == kh.id ? "selected" : ""}>${kh.quocGia}</option>--%>
-        <%--        </c:forEach>--%>
-    </select>
-
+    <input type="radio" name="tinhtrang" value="true" ${detail.tinh_trang == "Đang hoạt động" ? "checked" : ""}
+           checked> Đang hoạt động
+    <input type="radio" name="tinhtrang" value="false" ${detail.tinh_trang == "Không hoạt động" ? "checked" : ""}>
+    Không hoạt động
 
     <br> <br>
 
+    Ngày Sinh: <input type="date" name="ngaysinh" value="${detail.ngay_sinh}">
+    Ngày Tạo: <input type="date" name="ngaytao" value="${detail.ngay_tao}">
+    Ngày Cập Nhật: <input type="date" name="ngaycapnhat" value="${detail.ngay_cap_nhat}">
 
+    <br> <br>
+
+    Tài Khoản: <input type="text" name="taikhoan" value="${detail.tai_khoan}">
+    Mật Khẩu: <input type="text" name="matkhau" value="${detail.mat_khau}">
+
+    <br> <br>
+
+    <button type="submit" class="btn btn-success">Add</button>
 </form>
 
 
@@ -67,7 +63,6 @@
     <thead>
     <tr>
         <th>STT</th>
-        <th>Id</th>
         <th>Mã</th>
         <th>Họ Tên</th>
         <th>SĐT</th>
@@ -86,7 +81,7 @@
     <c:forEach items="${hienthi.content}" var="hienthis" varStatus="i">
         <tr>
             <td>${i.index + 1}</td>
-            <td>${hienthis.id}</td>
+                <%--            <td>${hienthis.id}</td>--%>
             <td>${hienthis.ma}</td>
             <td>${hienthis.ho_ten}</td>
             <td>${hienthis.sdt}</td>
@@ -99,8 +94,8 @@
             <td>${hienthis.ngay_cap_nhat}</td>
             <td>${hienthis.tinh_trang ? 'Hoạt động' : 'Không hoạt động'}</td>
             <td>
-                <a class="btn btn-success" href="/khach_hang/detail/${hienthis.id}">Detail</a>
-                <a class="btn btn-danger" href="">Delete</a>
+                <a class="btn btn-success" href="/khach-hang/detail/${hienthis.id}">Detail</a>
+                <a class="btn btn-danger" href="/khach-hang/remove/${hienthis.id}">Delete</a>
                 <a class="btn btn-primary" href="">Update</a>
             </td>
         </tr>
@@ -111,8 +106,8 @@
 
 <nav aria-label="Page navigation example">
     <ul class="pagination">
-        <c:forEach begin="0" end="${hienthi.totalPages}" varStatus="loop">
-            <li class="page-item"><a class="page-link" href="/khach_hang?page=${loop.index}">${loop.index+1}</a>
+        <c:forEach begin="0" end="${hienthi.totalPages -1}" varStatus="loop">
+            <li class="page-item"><a class="page-link" href="/khach-hang?page=${loop.index}">${loop.index + 1}</a>
             </li>
         </c:forEach>
     </ul>
