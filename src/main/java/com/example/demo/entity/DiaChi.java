@@ -39,10 +39,10 @@ public class DiaChi {
     private String thanhPho;
 
     @Column(name = "ngay_tao")
-    private Date ngayTao;
+    private String ngayTao;
 
     @Column(name = "ngay_cap_nhat")
-    private Date ngayCapNhat;
+    private String ngayCapNhat;
 
     @Column(name = "tinh_trang")
     private Boolean tinhTrang;

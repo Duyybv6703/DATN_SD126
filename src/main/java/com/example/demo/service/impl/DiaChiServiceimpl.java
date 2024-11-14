@@ -25,8 +25,7 @@ public class DiaChiServiceimpl implements DiaChiService {
 
     @Override
     public DiaChi getOne(String id) {
-        return null;
-//                diaChiRepository.findById(UUID.fromString(id)).orElse(null);
+        return diaChiRepository.findById(UUID.fromString(id)).orElse(null);
     }
 
     @Override
