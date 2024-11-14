@@ -74,9 +74,9 @@
             <td>${hienthis.tinhTrang ? 'Hoạt động' : 'Không hoạt động'}</td>
             <td>${hienthis.moTa}</td>
             <td>
-                <a class="btn btn-success" href="/khach-hang/detail/${hienthis.id}">Detail</a>
-                <a class="btn btn-danger" href="/khach-hang/remove/${hienthis.id}">Delete</a>
-                <a class="btn btn-primary" href="/khachhang/view-update/${hienthis.id}">Update</a>
+                <a class="btn btn-success" href="/dia-chi/detail/${hienthis.id}">Detail</a>
+                <a class="btn btn-danger" href="/dia-chi/remove/${hienthis.id}">Delete</a>
+                <a class="btn btn-primary" href="/dia-chi/view-update/${hienthis.id}">Update</a>
             </td>
         </tr>
     </c:forEach>
