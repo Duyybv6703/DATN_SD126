@@ -21,14 +21,24 @@
     <br> <br>
 
     Gioi Tính:
-    <select name="gioitinh">
 
-        <option value="Nam" ${detail.gioi_tinh == "Nam" ? "selected" : ""} >Nam</option>
-        <option value="Nữ" ${detail.gioi_tinh == "Nữ" ? "selected" : ""} >Nữ</option>
-        <%--        <c:forEach items="${khachhang}" var="kh">--%>
-        <%--            <option value="${kh.id}" ${detail.id == kh.id ? "selected" : ""}>${kh.quocGia}</option>--%>
-        <%--        </c:forEach>--%>
-    </select>
+    <%--    <select name="gioitinh">--%>
+    <%--        <c:forEach items="${gioitinh}" var="dc">--%>
+    <%--            <option value="${dc.id}" ${detail.id == dc.id ? "selected" : ""}>${dc.gioi_tinh}</option>--%>
+    <%--        </c:forEach>--%>
+    <%--    </select>--%>
+
+
+    <input type="radio" name="gioitinh" value="true" ${detail.gioi_tinh == "Nam" ? "checked" : ""}
+           checked> Nam
+    <input type="radio" name="gioitinh" value="false" ${detail.gioi_tinh == "Nữ" ? "checked" : ""}>
+    Nữ
+
+    <%--    //<select name="gioitinh">--%>
+    <%--&lt;%&ndash;        <option value="Nam" ${detail.gioi_tinh == "Nam" ? "selected" : ""} >Nam</option>&ndash;%&gt;--%>
+    <%--&lt;%&ndash;        <option value="Nữ" ${detail.gioi_tinh == "Nữ" ? "selected" : ""} >Nữ</option>&ndash;%&gt;--%>
+
+    <%--    //</select>--%>
 
     <br> <br>
 
