@@ -38,6 +38,8 @@ public class DiaChiServiceimpl implements DiaChiService {
     @Override
     public void delete(String id) {
 
+        diaChiRepository.deleteById(UUID.fromString(id));
+
     }
 
     @Override
