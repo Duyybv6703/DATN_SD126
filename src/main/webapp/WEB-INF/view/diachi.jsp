@@ -20,7 +20,7 @@
     <br> <br>
 
     Quận huyện: <input type="text" name="quanhuyen" value="${detail.quanHuyen}">
-    Thành phố: <input type="email" name="thanhpho" value="${detail.thanhPho}">
+    Thành phố: <input type="text" name="thanhpho" value="${detail.thanhPho}">
 
     <br> <br>
 
