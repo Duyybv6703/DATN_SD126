@@ -45,5 +45,8 @@ public class DiaChiServiceimpl implements DiaChiService {
     @Override
     public void update(String id, DiaChi diaChi) {
 
+        diaChi.setId(UUID.fromString(id));
+        diaChiRepository.save(diaChi);
+
     }
 }
