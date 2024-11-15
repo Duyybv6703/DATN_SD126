@@ -77,5 +77,41 @@ public class DiaChiController {
         return "redirect:/dia-chi";
     }
 
+    @GetMapping("/dia-chi/view-update/{id}")
+    public String viewUpdate(@PathVariable("id") String id, Model model) {
+
+        DiaChi diaChi = diaChiService.getOne(id);
+
+        model.addAttribute("detail", diaChi);
+        return "diachi-update";
+    }
+
+    @PostMapping("/dia-chi/update")
+    public String update(
+            @RequestParam("ma") String ma1,
+            @RequestParam("phuongxa") String phuongxa1,
+            @RequestParam("quanhuyen") String quanhuyen1,
+            @RequestParam("thanhpho") String thanhpho1,
+            @RequestParam("ngaytao") String ngaytao1,
+            @RequestParam("ngaycapnhat") String ngaycapnhat1,
+            @RequestParam("tinhtrang") String tinhtrang1,
+            @RequestParam("mota") String mota1,
+            @RequestParam("id") String id1
+    ) {
+        DiaChi diaChi = DiaChi.builder()
+                .ma(ma1)
+                .phuongXa(phuongxa1)
+                .quanHuyen(quanhuyen1)
+                .thanhPho(thanhpho1)
+                .ngayTao(ngaytao1)
+                .ngayCapNhat(ngaycapnhat1)
+                .tinhTrang(Boolean.valueOf(tinhtrang1))
+                .moTa(mota1)
+                .build();
+        diaChiService.update(id1, diaChi);
+
+        return "redirect:/dia-chi";
+    }
+
 
 }
