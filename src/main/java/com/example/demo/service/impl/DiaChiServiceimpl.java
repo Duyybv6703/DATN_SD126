@@ -30,6 +30,9 @@ public class DiaChiServiceimpl implements DiaChiService {
 
     @Override
     public void add(DiaChi diaChi) {
+
+        diaChiRepository.save(diaChi);
+
     }
 
     @Override
