@@ -44,6 +44,13 @@ public class DiaChiController {
         return "diachi";
     }
 
+    @GetMapping("/dia-chi/remove/{id}")
+    public String delete(@PathVariable("id") String id) {
+        diaChiService.delete(id);
+        return "redirect:/dia-chi";
+    }
+
+
     @PostMapping("/dia-chi/add")
     public String add(
             @RequestParam("ma") String ma1,
