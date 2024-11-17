@@ -2,12 +2,14 @@ package com.example.demo.controller;
 
 
 import com.example.demo.entity.ChucVu;
+import com.example.demo.entity.KhachHang;
 import com.example.demo.service.ChucVuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -26,7 +28,20 @@ public class ChucVuController {
 
         return "chucvu";
 
+    }
 
+    @GetMapping("/chuc-vu/detail/{id}")
+    public String detail(@PathVariable("id") String id, Model model) {
+
+        ChucVu chucVu = chucVuService.getOne(id);
+
+        Page<ChucVu> chucVus = chucVuService.getData(0);
+
+        model.addAttribute("hienthi", chucVus);
+
+        model.addAttribute("detail", chucVu);
+
+        return "chucvu";
     }
 
 
