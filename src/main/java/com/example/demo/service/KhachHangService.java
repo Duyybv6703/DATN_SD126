@@ -3,9 +3,6 @@ package com.example.demo.service;
 import com.example.demo.entity.KhachHang;
 import org.springframework.data.domain.Page;
 
-import java.util.List;
-
-
 public interface KhachHangService {
 
 
