@@ -9,6 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class ChucVuServiceimpl implements ChucVuService {
 
@@ -24,7 +26,7 @@ public class ChucVuServiceimpl implements ChucVuService {
 
     @Override
     public ChucVu getOne(String id) {
-        return null;
+        return chucVuRepository.findById(UUID.fromString(id)).orElse(null);
     }
 
     @Override
