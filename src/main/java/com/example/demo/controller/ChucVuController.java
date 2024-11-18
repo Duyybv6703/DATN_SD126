@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -42,6 +43,29 @@ public class ChucVuController {
         model.addAttribute("detail", chucVu);
 
         return "chucvu";
+    }
+
+
+    @PostMapping("/chuc-vu/add")
+    public String add(
+            @RequestParam("ma") String ma1,
+            @RequestParam("ten") String ten1,
+            @RequestParam("ngaytao") String ngaytao1,
+            @RequestParam("ngaycapnhat") String ngaycapnhat1,
+            @RequestParam("tinhtrang") String tinhtrang1,
+            @RequestParam("mota") String mota1
+    ) {
+        ChucVu chucVu = ChucVu.builder()
+                .ma(ma1)
+                .ten(ten1)
+                .ngayTao(ngaytao1)
+                .ngayCapNhat(ngaycapnhat1)
+                .tinhTrang(Boolean.valueOf(tinhtrang1))
+                .moTa(mota1)
+                .build();
+        chucVuService.add(chucVu);
+
+        return "redirect:/chuc-vu";
     }
 
 
