@@ -32,6 +32,8 @@ public class ChucVuServiceimpl implements ChucVuService {
     @Override
     public void add(ChucVu chucVu) {
 
+        chucVuRepository.save(chucVu);
+
     }
 
     @Override
