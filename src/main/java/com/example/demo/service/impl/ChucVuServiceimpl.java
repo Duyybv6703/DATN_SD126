@@ -39,6 +39,8 @@ public class ChucVuServiceimpl implements ChucVuService {
     @Override
     public void delete(String id) {
 
+        chucVuRepository.deleteById(UUID.fromString(id));
+
     }
 
     @Override
