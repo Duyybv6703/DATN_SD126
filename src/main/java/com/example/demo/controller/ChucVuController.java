@@ -74,5 +74,37 @@ public class ChucVuController {
         return "redirect:/chuc-vu";
     }
 
+    @GetMapping("/chuc-vu/view-update/{id}")
+    public String viewUpdate(@PathVariable("id") String id, Model model) {
+
+        ChucVu chucVu = chucVuService.getOne(id);
+
+        model.addAttribute("detail", chucVu);
+        return "chucvu-update";
+    }
+
+    @PostMapping("/chuc-vu/update")
+    public String update(
+            @RequestParam("ma") String ma1,
+            @RequestParam("ten") String ten1,
+            @RequestParam("ngaytao") String ngaytao1,
+            @RequestParam("ngaycapnhat") String ngaycapnhat1,
+            @RequestParam("tinhtrang") String tinhtrang1,
+            @RequestParam("mota") String mota1,
+            @RequestParam("id") String id1
+    ) {
+        ChucVu chucVu = ChucVu.builder()
+                .ma(ma1)
+                .ten(ten1)
+                .ngayTao(ngaytao1)
+                .ngayCapNhat(ngaycapnhat1)
+                .tinhTrang(Boolean.valueOf(tinhtrang1))
+                .moTa(mota1)
+                .build();
+        chucVuService.update(id1, chucVu);
+
+        return "redirect:/chuc-vu";
+    }
+
 
 }

@@ -82,6 +82,5 @@
         </c:forEach>
     </ul>
 </nav>
-z
 </body>
 </html>
