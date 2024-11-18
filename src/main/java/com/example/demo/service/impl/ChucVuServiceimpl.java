@@ -46,5 +46,8 @@ public class ChucVuServiceimpl implements ChucVuService {
     @Override
     public void update(String id, ChucVu chucVu) {
 
+        chucVu.setId(UUID.fromString(id));
+        chucVuRepository.save(chucVu);
+
     }
 }
