@@ -45,6 +45,12 @@ public class ChucVuController {
         return "chucvu";
     }
 
+    @GetMapping("/chuc-vu/remove/{id}")
+    public String delete(@PathVariable("id") String id) {
+        chucVuService.delete(id);
+        return "redirect:/chuc-vu";
+    }
+
 
     @PostMapping("/chuc-vu/add")
     public String add(
