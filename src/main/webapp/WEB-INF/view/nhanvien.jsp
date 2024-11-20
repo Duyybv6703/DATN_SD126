@@ -52,9 +52,9 @@
     Cccd: <input type="text" name="cccd" value="${detail.cccd}">
 
 
-    Ngày Tạo: <input type="date" name="ngaytao" value="${detail.ngay_tao}">
+    Ngày Tạo: <input type="date" name="ngaytao" value="${detail.ngayTao}">
 
-    Ngày Cập Nhật: <input type="date" name="ngaycapnhat" value="${detail.ngay_cap_nhat}">
+    Ngày Cập Nhật: <input type="date" name="ngaycapnhat" value="${detail.ngayCapNhat}">
 
 
     <br> <br>
@@ -108,7 +108,7 @@
             <td>${hienthis.ngayCapNhat}</td>
             <td>${hienthis.tinhTrang ? 'Hoạt động' : 'Không hoạt động'}</td>
             <td>
-                <a class="btn btn-success" href="/khach-hang/detail/${hienthis.id}">Detail</a>
+                <a class="btn btn-success" href="/nhan-vien/detail/${hienthis.id}">Detail</a>
                 <a class="btn btn-danger" href="/khach-hang/remove/${hienthis.id}">Delete</a>
                 <a class="btn btn-primary" href="/khachhang/view-update/${hienthis.id}">Update</a>
             </td>
