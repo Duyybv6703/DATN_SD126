@@ -10,6 +10,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class NhanVienServiceimpl implements NhanVienService {
 
@@ -24,7 +26,7 @@ public class NhanVienServiceimpl implements NhanVienService {
 
     @Override
     public NhanVien getOne(String id) {
-        return null;
+        return nhanVienRepository.findById(UUID.fromString(id)).orElse(null);
     }
 
     @Override
