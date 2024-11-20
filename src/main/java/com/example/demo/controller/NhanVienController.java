@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -23,6 +24,20 @@ public class NhanVienController {
         Page<NhanVien> nhanVien = nhanVienService.getData(page);
 
         model.addAttribute("hienthi", nhanVien);
+
+        return "nhanvien";
+    }
+
+    @GetMapping("/nhan-vien/detail/{id}")
+    public String detail(@PathVariable("id") String id, Model model) {
+
+        NhanVien nhanVien = nhanVienService.getOne(id);
+
+        Page<NhanVien> nhanViens = nhanVienService.getData(0);
+
+        model.addAttribute("hienthi", nhanViens);
+
+        model.addAttribute("detail", nhanVien);
 
         return "nhanvien";
     }
