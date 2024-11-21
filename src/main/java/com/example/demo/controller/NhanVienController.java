@@ -88,4 +88,54 @@ public class NhanVienController {
         return "redirect:/nhan-vien";
     }
 
+    @GetMapping("/nhanvien/view-update/{id}")
+    public String viewUpdate(@PathVariable("id") String id, Model model) {
+
+        NhanVien nhanVien = nhanVienService.getOne(id);
+
+        model.addAttribute("detail", nhanVien);
+        return "nhanvien-update";
+    }
+
+
+    @PostMapping("/nhan-vien/update")
+    public String update(
+            @RequestParam("ma") String ma1,
+            @RequestParam("hoten") String hoten1,
+            @RequestParam("sdt") String sdt1,
+            @RequestParam("email") String email1,
+            @RequestParam("urlanh") String urlanh1,
+            @RequestParam("gioitinh") String gioitinh1,
+            @RequestParam("ngaysinh") String ngaysinh1,
+            @RequestParam("quequan") String quequan1,
+            @RequestParam("cccd") String cccd,
+            @RequestParam("taikhoan") String taikhoan1,
+            @RequestParam("matkhau") String matkhau1,
+            @RequestParam("ngaytao") String ngaytao1,
+            @RequestParam("ngaycapnhat") String ngaycapnhat1,
+            @RequestParam("tinhtrang") String tinhtrang1,
+            @RequestParam("id") String id1
+    ) {
+        NhanVien nhanVien = NhanVien.builder()
+                .ma(ma1)
+                .hoTen(hoten1)
+                .sdt(sdt1)
+                .email(email1)
+                .urlAnh(urlanh1)
+                .gioiTinh(Boolean.valueOf(gioitinh1))
+                .ngaySinh(ngaysinh1)
+                .queQuan(quequan1)
+                .cccd(cccd)
+                .taiKhoan(taikhoan1)
+                .matKhau(matkhau1)
+                .ngayTao(ngaytao1)
+                .ngayCapNhat(ngaycapnhat1)
+                .tinhTrang(Boolean.valueOf(tinhtrang1))
+                .build();
+        nhanVienService.update(id1, nhanVien);
+
+        return "redirect:/nhan-vien";
+    }
+
+
 }
