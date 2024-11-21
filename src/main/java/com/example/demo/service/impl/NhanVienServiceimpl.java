@@ -37,6 +37,7 @@ public class NhanVienServiceimpl implements NhanVienService {
 
     @Override
     public void delete(String id) {
+        nhanVienRepository.deleteById(UUID.fromString(id));
 
     }
 
