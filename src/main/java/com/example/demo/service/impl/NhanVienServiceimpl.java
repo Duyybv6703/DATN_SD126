@@ -44,5 +44,8 @@ public class NhanVienServiceimpl implements NhanVienService {
     @Override
     public void update(String id, NhanVien nhanVien) {
 
+        nhanVien.setId(UUID.fromString(id));
+        nhanVienRepository.save(nhanVien);
+
     }
 }
