@@ -43,6 +43,13 @@ public class NhanVienController {
         return "nhanvien";
     }
 
+    @GetMapping("/nhan-vien/remove/{id}")
+    public String delete(@PathVariable("id") String id) {
+        nhanVienService.delete(id);
+        return "redirect:/nhan-vien";
+    }
+
+
     @PostMapping("/nhan-vien/add")
     public String add(
             @RequestParam("ma") String ma1,
