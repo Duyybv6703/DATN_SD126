@@ -107,7 +107,7 @@
             <td>
                 <a class="btn btn-success" href="/nhan-vien/detail/${hienthis.id}">Detail</a>
                 <a class="btn btn-danger" href="/nhan-vien/remove/${hienthis.id}">Delete</a>
-                <a class="btn btn-primary" href="/khachhang/view-update/${hienthis.id}">Update</a>
+                <a class="btn btn-primary" href="/nhanvien/view-update/${hienthis.id}">Update</a>
             </td>
         </tr>
     </c:forEach>
