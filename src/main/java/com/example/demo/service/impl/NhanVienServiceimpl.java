@@ -31,6 +31,7 @@ public class NhanVienServiceimpl implements NhanVienService {
 
     @Override
     public void add(NhanVien nhanVien) {
+        nhanVienRepository.save(nhanVien);
 
     }
 
