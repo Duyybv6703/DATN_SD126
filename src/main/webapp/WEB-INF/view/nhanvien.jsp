@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form>
+<form action="/nhan-vien/add" method="post">
     <br> <br>
     Mã: <input type="text" name="ma" value="${detail.ma}">
     Họ Tên: <input type="text" name="hoten" value="${detail.hoTen}">
@@ -32,9 +32,6 @@
 
         <option value="Nam" ${detail.gioiTinh == "Nam" ? "selected" : ""} >Nam</option>
         <option value="Nữ" ${detail.gioiTinh == "Nữ" ? "selected" : ""} >Nữ</option>
-        <%--        <c:forEach items="${khachhang}" var="kh">--%>
-        <%--            <option value="${kh.id}" ${detail.id == kh.id ? "selected" : ""}>${kh.quocGia}</option>--%>
-        <%--        </c:forEach>--%>
     </select>
 
     <br> <br>
